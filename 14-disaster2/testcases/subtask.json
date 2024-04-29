@@ -1,0 +1,40 @@
+{
+    "version": 1.0,
+    "data": {
+        "subtask 1": {
+            "case": "1-10",
+            "group": true,
+            "score": 7
+        },
+        "subtask 2": {
+            "case": "11-20",
+            "group": true,
+            "score": 18
+        },
+        "subtask 3": {
+            "case": "21-30",
+            "group": true,
+            "score": 35
+        },
+        "subtask 4": {
+            "case": "31-45",
+            "group": true,
+            "score": 27
+        },
+        "subtask 5": {
+            "case": "46-60",
+            "group": true,
+            "score": 69
+        },
+        "subtask 6": {
+            "case": "61-75",
+            "group": true,
+            "score": 85
+        },
+        "subtask 7": {
+            "case": "76-104",
+            "group": true,
+            "score": 9
+        }
+    }
+}

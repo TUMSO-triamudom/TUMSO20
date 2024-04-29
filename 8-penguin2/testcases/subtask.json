@@ -1,0 +1,35 @@
+{
+    "version": 1.0,
+    "data": {
+        "subtask 1": {
+            "case": "1-5",
+            "group": true,
+            "score": 3
+        },
+        "subtask 2": {
+            "case": "6-10",
+            "group": true,
+            "score": 5
+        },
+        "subtask 3": {
+            "case": "11-15",
+            "group": true,
+            "score": 7
+        },
+        "subtask 4": {
+            "case": "16-30",
+            "group": true,
+            "score": 1
+        },
+        "subtask 5": {
+            "case": "31-50",
+            "group": true,
+            "score": 13
+        },
+        "subtask 6": {
+            "case": "51-100",
+            "group": true,
+            "score": 61
+        }
+    }
+}

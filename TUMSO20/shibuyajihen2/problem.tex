@@ -1,0 +1,260 @@
+\documentclass[11pt,a4paper]{article}
+
+\newcommand{\tumsoTime}{09:00 น. - 12:00 น.}
+\newcommand{\tumsoRound}{1}
+
+\usepackage{../tumso}
+
+\usepackage{soul}
+\usepackage{mathtools}
+
+\begin{document}
+
+\begin{problem}{อุบัติการณ์ชิบูย่า 2}{standard input}{standard output}{0.25 seconds}{32 megabytes}{100}
+
+ได้เกิดเหตุการณ์เหนือธรรมชาติขึ้นที่ชิบูย่า ทำให้ตอนนี้ทั้งโตเกียวกลายเป็นที่ ๆ คนธรรมดาอย่างเราไม่สามารถอยู่อาศัยได้แล้ว
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=14cm]{shibuyajihen2/urmyspecial.jpg}
+\caption{ข่าวเหตุการณ์ปริศนาที่เกิดขึ้นที่โตเกียว (ภาพจากคาราโอเกะชั้นใต้ดิน)}
+\end{figure}
+
+Sona และ Loss ที่รอดมาจากสถานีรถไฟใต้ดินด้วยความช่วยเหลือจากทุก ๆ คนที่มาช่วยทำโจทย์ Crack 'n' Code Pre POSN 1 2023 (โจทย์ อุบัติการณ์ชิบูย่า (ภาค 1) \url{https://codeforces.com/group/rn8uJP8lA7/contest/477436} เนื้อเรื่องต่อกัน แต่โจทย์ไม่เกี่ยวกัน \textbf{ไม่จำเป็นต้องอ่านหรือทำโจทย์ภาคแรกมาก่อน}) แต่ทั้งสองก็สบายใจได้ไม่นานนัก เพราะพวกเขาต้องรีบหนีจากโตเกียวที่ความอันตรายจะสูงขึ้นเรื่อย ๆ
+
+Sona และ Loss ได้เดินทางอย่างระมัดระวังจนได้พบกับท่าน M-W และ Hibiki ซึ่งเมื่อคืนก่อน ทั้งสองท่านนี้ได้ไปตบตู้ซักผ้ากับ CEO(?) ของ Crack 'n' Code จนถึงเที่ยงคืนทำให้นอนดึก และพอตื่นมาก็พบว่าโตเกียวกลายเป็นเมืองร้างไปแล้ว
+
+ทั้งสี่คนได้เดินทางเพื่อออกนอกโตเกียว แต่ดันโชคร้ายเจอกับวิญญาณคำสาป แต่อาจจะไม่โชคร้ายซะทีเดียว วิญญาณคำสาปตนนี้ มีชื่อว่า ออปเพนไฮเมอร์สไตล์ เกิดจากความรู้สึกของนักศึกษาที่ติด F หรือ W เพราะ Quantum Physics ในวิชา Gen Phys II แถมยังโดนเพื่อนลากไปดูหนัง Oppenheimer แล้วไม่เข้าใจอะไรเลย
+
+ออปเพนไฮเมอร์สไตล์ ได้มอบข้อเสนอให้กับพวกเขาทั้งสี่ ว่าหากแก้ปริศนาได้ก็จะสามารถหนีออกจากโตเกียวไปได้ โดยปริศนาที่ว่าก็คือมีทางอยู่ทั้งหมด 4 ทาง ได้แก่ $|00\rangle$, $|01\rangle$, $|10\rangle$ และ $|11\rangle$ โดยทางออกที่ถูกต้อง \textbf{เริ่มต้นจะเป็นทางออกแรก หรือ} $|\psi\rangle = |00\rangle$
+
+โดยออปเพนไฮเมอร์สไตล์ จะทำ Operation ต่าง ๆ เข้าไปทำให้ทางออกที่ถูกต้องเปลี่ยนไปเรื่อย ๆ
+
+ยกตัวอย่างเช่น การใส่ Pauli-X Gate เข้าไปใน Qubit แรก
+
+$$|00\rangle \xrightarrow{X \otimes I} |10\rangle$$
+
+ซึ่งทำให้ทางออกที่ถูกต้องตอนนี้กลายเป็นทางออกที่ 3 ($|\psi\rangle = |10\rangle$)
+
+Operation ดังกล่าวสามารถเขียนให้อยู่ในรูป Matrix ได้ดังนี้
+
+$$X \otimes I = \begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix} \otimes \begin{pmatrix}
+1 & 0\\
+0 & 1
+\end{pmatrix} = \begin{pmatrix}
+0\cdot\begin{pmatrix}
+1 & 0\\
+0 & 1
+\end{pmatrix} & 1\cdot\begin{pmatrix}
+1 & 0\\
+0 & 1
+\end{pmatrix}\\
+1\cdot\begin{pmatrix}
+1 & 0\\
+0 & 1
+\end{pmatrix} & 0\cdot\begin{pmatrix}
+1 & 0\\
+0 & 1
+\end{pmatrix}
+\end{pmatrix} = \begin{pmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{pmatrix}$$
+
+$$(X \otimes I)|00\rangle = \begin{pmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{pmatrix} \cdot \begin{pmatrix}
+1 \\
+0 \\
+0 \\
+0 \\
+\end{pmatrix} = \begin{pmatrix}
+0 \\
+0 \\
+1 \\
+0 \\
+\end{pmatrix}$$
+
+ออปเพนไฮเมอร์สไตล์กล่าวว่า จะมีทั้งหมด $N$ operation กับ state ของทางออกที่ถูกต้อง โดยแต่ละ Operation จะมี $U_1$ และ $U_2$ เป็น Quantum Gate ที่กระทำกับ Qubit ที่หนึ่งและสองตามลำดับ โดย $U$ จะเป็น Matrix ขนาด $2\times2$ ที่ $UU^\dagger = I$ หรือ $U^{-1} = U^\dagger$ คุณไม่จำเป็นต้องเข้าใจว่ามันคืออะไร รับประกันว่าข้อมูลนำเข้าของโจทย์ข้อนี้ จะเป็นไปตามนี้เสมอ
+
+การคำนวณ $(U_1 \otimes U_2)|\psi\rangle$ สามารถทำได้ดังนี้
+
+\textbf{ขั้นตอนที่ 1} การหา $U_1 \otimes U_2$ (Tensor Product) กำหนดให้
+
+$$U_1 = \begin{pmatrix}
+a_1 & a_2 \\
+a_3 & a_4
+\end{pmatrix}, U_2 = \begin{pmatrix}
+b_1 & b_2 \\
+b_3 & b_4
+\end{pmatrix}$$
+
+แล้ว
+
+$$U_1 \otimes U_2 = \begin{pmatrix}
+a_1\cdot\begin{pmatrix}
+b_1 & b_2 \\
+b_3 & b_4
+\end{pmatrix} & a_2\cdot\begin{pmatrix}
+b_1 & b_2 \\
+b_3 & b_4
+\end{pmatrix} \\
+a_3\cdot\begin{pmatrix}
+b_1 & b_2 \\
+b_3 & b_4
+\end{pmatrix} & a_4\cdot\begin{pmatrix}
+b_1 & b_2 \\
+b_3 & b_4
+\end{pmatrix}
+\end{pmatrix} = \begin{pmatrix}
+a_1b_1 & a_1b_2 & a_2b_1 & a_2b_2 \\
+a_1b_3 & a_1b_4 & a_2b_3 & a_2b_4 \\
+a_3b_1 & a_3b_2 & a_4b_1 & a_4b_2 \\
+a_3b_3 & a_3b_4 & a_4b_3 & a_4b_4
+\end{pmatrix}$$
+
+\textbf{ขั้นตอนที่ 2} ค่าของ $|\psi\rangle$ โดยถ้า
+
+$$|\psi\rangle = a|00\rangle + b|01\rangle + c|10\rangle + d|11\rangle$$
+
+แล้ว
+
+$$|\psi\rangle = \begin{pmatrix}
+a \\
+b \\
+c \\
+d
+\end{pmatrix}$$
+
+\textbf{ขั้นตอนที่ 3} นำเมทริกซ์ที่ได้จากสองขั้นตอนมาคูณกัน ผลลัพธ์จะเป็นเมทริกซ์ขนาด $4\times1$ ซึ่งเป็น State ถัดไป โดยคุณสามารถหาวิธีการคูณเมทริกซ์ได้จาก Google หรือจะถาม ChatGPT ก็ได้ คุณจะต้องนำ State มาคำนวณไปเรื่อย ๆ จนได้ State สุดท้ายหลังจาก $N$ Operation แล้วคุณก็จะได้คำตอบว่าทางออกที่ถูกคือทางไหน
+
+\textbf{คำใบ้เพิ่มเติม 1} $|\psi_1\psi_2\rangle = |\psi_1\rangle \otimes |\psi_2\rangle$
+
+\textbf{คำใบ้เพิ่มเติม 2} $(A \otimes B)(C \otimes D) = AC \otimes BD$
+
+\InputFile
+ข้อมูลนำเข้ามีทั้งหมด $4N+1$ บรรทัด
+
+บรรทัดแรกประกอบด้วยจำนวนเต็ม $N$ แทนจำนวน Operation ทั้งหมด
+
+บรรทัดที่ $4i - 2$ ถึง $4i - 1$ จะแสดง Matrix ของ $U_1$ (ดูตัวอย่าง)
+
+บรรทัดที่ $4i$ ถึง $4i + 1$ จะแสดง Matrix ของ $U_2$
+
+\OutputFile
+ตอบจำนวนหนึ่งตัว (1 หรือ 2 หรือ 3 หรือ 4) แทนทางออกที่ถูกต้อง อาจมีมากกว่าหนึ่งทางออกที่ค่าความน่าจะเป็นเท่ากัน หรือใกล้เคียงกันมาก $(\le 10^{-3})$ ให้ตอบอันใดก็ได้
+
+\textbf{หมายเหตุ} ค่าความน่าจะเป็นคิือ กำลังสองของค่าสัมบูรณ์ $(|x|^2)$
+
+\section*{ขอบเขต}
+
+\begin{itemize}
+\item $N \le 10$
+\item $U_1$ และ $U_2$ เป็นเมทริกซ์ขนาด $2\times2$ ที่มีสมาชิกทุกตัวเป็นจำนวนจริง $(\mathbb{R})$ และเป็น Valid Quantum Gate $(UU^\dagger = I)$
+\end{itemize}
+
+\textbf{หมายเหตุ} $U$ ในชุดทดสอบ อาจ $UU^\dagger \neq I$ เนื่องจากความคลาดเคลื่อนของ Floating Number
+
+\Scoring
+ชุดทดสอบจะมี 4 ชุด และจะได้คะแนนในแต่ละชุด ก็ต่อเมื่อตอบถูกทุกชุดทดสอบในชุดนั้น ๆ เท่านั้น (คุณต้องพาท่านเทพทั้งสี่ออกจากโตเกียวให้ได้ในทุกชุดทดสอบของปัญหาย่อย)
+
+\begin{description}
+
+\item[ชุดที่ 1 (12 คะแนน)] $N = 1$, $U_2 = I$ และ $U_1 \in \{X,Z,I\}$
+
+\item[ชุดที่ 2 (25 คะแนน)] $U \in \{X,Z,I\}$
+
+\item[ชุดที่ 3 (28 คะแนน)] $U_2 = I$
+
+\item[ชุดที่ 4 (35 คะแนน)] ไม่มีเงื่อนไขเพิ่มเติม
+
+\end{description}
+
+โดยที่
+\begin{itemize}
+
+\item $X$ คือ Pauli-X Gate $\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}$
+
+\item $Z$ คือ Pauli-Z Gate $\begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix}$
+
+\item $I$ คือ เมทริกซ์เอกลักษณ์ $\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}$
+
+\end{itemize}
+
+\Examples
+
+\begin{example}
+\exmp{1
+0 1
+1 0
+1 0
+0 1
+}{3
+}%
+\exmp{1
+0.7071067812 0.7071067812
+0.7071067812 -0.7071067812
+1 0
+0 1
+}{1
+}%
+\exmp{1
+0.7071067812 0.7071067812
+0.7071067812 -0.7071067812
+1 0
+0 1
+}{3
+}%
+\exmp{2
+0 1
+1 0
+1 0
+0 1
+1 0
+0 -1
+0 1
+1 0
+}{4
+}%
+\end{example}
+
+\Note
+
+\textbf{ตัวอย่างแรก} คือ $X \otimes I$ ตามที่ได้อธิบายไว้ในโจทย์ (State เริ่มต้นเป็น $|00\rangle$ หรือ $\begin{pmatrix}
+1 \\
+0 \\
+0 \\
+0 \\
+\end{pmatrix}$ เสมอ)
+
+\textbf{ตัวอย่างที่ 2 และ 3} คือ $H \otimes I$ (โดย $H$ คือ Hadamard Gate หรือ $\begin{pmatrix}
+\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}
+\end{pmatrix}$) ซึ่งผลลัพธ์คือ $\frac{1}{\sqrt{2}}|00\rangle + \frac{1}{\sqrt{2}}|10\rangle$ โดยจะตอบทางออกที่ 1 หรือ 3 ก็ได้ เพราะทั้งสองทางออกมีความน่าจะเป็นเท่ากันที่ $\frac{1}{2}$
+
+\textbf{ตัวอย่างที่ 4} มีทั้งหมด 2 Operation ได้แก่ $X \otimes I$ และ $Z \otimes X$ ได้ดังนี้
+
+$$|00\rangle \xrightarrow{X \otimes I} |10\rangle \xrightarrow{Z \otimes X} -|11\rangle = |11\rangle$$
+
+คำตอบที่ถูกต้องคือทางออกที่ 4 $(|11\rangle)$
+
+\end{problem}
+
+\end{document}
